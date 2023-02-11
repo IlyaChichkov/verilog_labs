@@ -99,15 +99,39 @@ always_ff @(posedge clk_i or negedge resetn_i) begin
   end
   else
   begin
+    if(valid_o)
+    begin
+      if(ack_i) // Данные дошли до получателя
+        valid_o <= 0;
+    end
+    else
+    begin
+      if(request_i && (mState == `STAGE_IDLE || mState == `STAGE_FINAL)) begin
+        // Начинаем цикл обработки информации
+        mState <= `STAGE_KEY_OP; // Переходим в стадию покрытия данных ключом
+        busy_o <= 1;
+        current_data = data_i;
+      end
+    end
+
     case(mState)
       1: begin
         // Получаем покрытые ключом данные и переходим
         // на стадию линейного преобразования
-        current_data = key_overlay_result;
-        if(trial_num_ff > 10) // пройдена 10 стадия шифрования
+        if(trial_num_ff >= 9) 
+        begin
+          // пройдена 10 стадия шифрования
           mState <= `STAGE_FINAL;
+          current_data = key_overlay_result;
+          busy_o <= 0;
+          valid_o <= 1;
+          data_o <= current_data;
+        end
         else
+        begin
           mState <= `STAGE_LINE_OP;
+          current_data = key_overlay_result;
+        end
       end
       2: begin
         // Получаем линейно преобразованные данные и переходим
@@ -130,17 +154,12 @@ always_ff @(posedge clk_i or negedge resetn_i) begin
       end
       4: begin
         trial_num_ff = 0;
-        data_o = current_data;
         if(request_i)
           mState <= `STAGE_KEY_OP; // Переходим в стадию покрытия данных ключом
         else
           mState <= `STAGE_IDLE; // Переходим в стадию ожиданий
       end
     endcase
-
-    if(request_i && (mState == `STAGE_IDLE || mState == `STAGE_FINAL)) begin
-      mState <= `STAGE_KEY_OP; // Переходим в стадию покрытия данных ключом
-    end
   end
 end
 
@@ -232,12 +251,34 @@ module nonlinear_overlay_module(
   logic [7:0] galua_summ; // Сумма произведений
   logic [127:0] trial_output; // Промежуточный результат
 
-  logic [7:0] data_galua_shreg   [15:0]; // Сдвиговый регистр
+  logic [7:0] data_galua_shreg        [15:0]; // Сдвиговый регистр
+  logic [7:0] data_galua_shreg_next   [15:0]; // 
 
 generate;
   // преобразование в строку байт из массива
   for (genvar i = 0; i < 16; i++)
-    assign trial_output[((i+1)*8)-1:(i*8)] = data_galua_shreg[i];
+    assign trial_output[((i+1)*8)-1:(i*8)] = data_galua_shreg_next[i];
+
+  always_comb begin
+    galua_summ = '0;
+    for (int i = 0; i < 16; i++)
+      galua_summ = galua_summ ^ data_galua_result[i];
+  end
+
+  always_comb begin
+    data_galua_shreg_next[15] = galua_summ;
+    for (int i = 14; i >= 0; i--)
+      data_galua_shreg_next[i] = data_galua_shreg[i+1];
+  end
+
+  for (genvar i = 0; i < 16; i++) begin
+    always_ff @(posedge clk_i or negedge resetn_i) begin
+      if (~resetn_i)
+        data_galua_shreg[i] = '0;
+      else if (busy)
+        data_galua_shreg[i] = data_galua_shreg_next[i];
+    end
+  end
 endgenerate
 
   always_ff @(posedge clk_i or negedge resetn_i)
@@ -261,12 +302,6 @@ endgenerate
         
         if(busy)
           begin
-            // Вычисляем сумму произведений
-            galua_summ = '0;
-            for (int i = 0; i < 16; i++)
-              galua_summ = galua_summ ^ data_galua_result[i];
-            
-            data_galua_shreg[15 - operation_counter] <= galua_summ;
             data_galua_in <= data_galua_shreg;
 
             if(resultOnNextClk)
