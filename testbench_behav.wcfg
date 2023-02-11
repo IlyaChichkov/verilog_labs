@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="20255333fs"></ZoomStartTime>
+      <ZoomEndTime time="20386934fs"></ZoomEndTime>
+      <Cursor1Time time="20365000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="group134" type="group">
+      <obj_property name="label">Testbench</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/data_to_cipher" type="array">
+         <obj_property name="ElementShortName">data_to_cipher[0:10][127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_to_cipher[0:10][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/ciphered_data" type="array">
+         <obj_property name="ElementShortName">ciphered_data[0:10][127:0]</obj_property>
+         <obj_property name="ObjectShortName">ciphered_data[0:10][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/request" type="logic">
+         <obj_property name="ElementShortName">request</obj_property>
+         <obj_property name="ObjectShortName">request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/ack" type="logic">
+         <obj_property name="ElementShortName">ack</obj_property>
+         <obj_property name="ObjectShortName">ack</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/valid" type="logic">
+         <obj_property name="ElementShortName">valid</obj_property>
+         <obj_property name="ObjectShortName">valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/data_i" type="array">
+         <obj_property name="ElementShortName">data_i[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/data_o" type="array">
+         <obj_property name="ElementShortName">data_o[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/print_str" type="array">
+         <obj_property name="ElementShortName">print_str[1407:0]</obj_property>
+         <obj_property name="ObjectShortName">print_str[1407:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group135" type="group">
+      <obj_property name="label">Cipher</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/DUT/clk_i" type="logic">
+         <obj_property name="ElementShortName">clk_i</obj_property>
+         <obj_property name="ObjectShortName">clk_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/resetn_i" type="logic">
+         <obj_property name="ElementShortName">resetn_i</obj_property>
+         <obj_property name="ObjectShortName">resetn_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/request_i" type="logic">
+         <obj_property name="ElementShortName">request_i</obj_property>
+         <obj_property name="ObjectShortName">request_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/ack_i" type="logic">
+         <obj_property name="ElementShortName">ack_i</obj_property>
+         <obj_property name="ObjectShortName">ack_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/busy_o" type="logic">
+         <obj_property name="ElementShortName">busy_o</obj_property>
+         <obj_property name="ObjectShortName">busy_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/valid_o" type="logic">
+         <obj_property name="ElementShortName">valid_o</obj_property>
+         <obj_property name="ObjectShortName">valid_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/result_formed" type="logic">
+         <obj_property name="ElementShortName">result_formed</obj_property>
+         <obj_property name="ObjectShortName">result_formed</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/data_o" type="array">
+         <obj_property name="ElementShortName">data_o[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group207" type="group">
+         <obj_property name="label">Table</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/testbench/DUT/key_mem" type="array">
+            <obj_property name="ElementShortName">key_mem[0:9][127:0]</obj_property>
+            <obj_property name="ObjectShortName">key_mem[0:9][127:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/S_box_mem" type="array">
+            <obj_property name="ElementShortName">S_box_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">S_box_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_16_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_16_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_16_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_32_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_32_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_32_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_133_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_133_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_133_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_148_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_148_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_148_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_192_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_192_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_192_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_194_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_194_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_194_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/L_mul_251_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_251_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_251_mem[0:255][7:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/current_data" type="array">
+         <obj_property name="ElementShortName">current_data[127:0]</obj_property>
+         <obj_property name="ObjectShortName">current_data[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/mState" type="array">
+         <obj_property name="ElementShortName">mState[3:0]</obj_property>
+         <obj_property name="ObjectShortName">mState[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/trial_num_ff" type="array">
+         <obj_property name="ElementShortName">trial_num_ff[3:0]</obj_property>
+         <obj_property name="ObjectShortName">trial_num_ff[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_request" type="logic">
+         <obj_property name="ElementShortName">nonlinear_request</obj_property>
+         <obj_property name="ObjectShortName">nonlinear_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/data_i" type="array">
+         <obj_property name="ElementShortName">data_i[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/key_overlay_result" type="array">
+         <obj_property name="ElementShortName">key_overlay_result[127:0]</obj_property>
+         <obj_property name="ObjectShortName">key_overlay_result[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/linear_overlay_result" type="array">
+         <obj_property name="ElementShortName">linear_overlay_result[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">linear_overlay_result[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay_i" type="array">
+         <obj_property name="ElementShortName">nonlinear_overlay_i[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">nonlinear_overlay_i[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay_result" type="array">
+         <obj_property name="ElementShortName">nonlinear_overlay_result[127:0]</obj_property>
+         <obj_property name="ObjectShortName">nonlinear_overlay_result[127:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group136" type="group">
+      <obj_property name="label">Key</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/DUT/key_overlay/round_key" type="array">
+         <obj_property name="ElementShortName">round_key[127:0]</obj_property>
+         <obj_property name="ObjectShortName">round_key[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/key_overlay/trial_input_mux" type="array">
+         <obj_property name="ElementShortName">trial_input_mux[127:0]</obj_property>
+         <obj_property name="ObjectShortName">trial_input_mux[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/key_overlay/data_key_result" type="array">
+         <obj_property name="ElementShortName">data_key_result[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_key_result[127:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group137" type="group">
+      <obj_property name="label">Linear</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/DUT/linear_overlay/S_box_mem" type="array">
+         <obj_property name="ElementShortName">S_box_mem[0:255][7:0]</obj_property>
+         <obj_property name="ObjectShortName">S_box_mem[0:255][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/linear_overlay/input_data" type="array">
+         <obj_property name="ElementShortName">input_data[127:0]</obj_property>
+         <obj_property name="ObjectShortName">input_data[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/linear_overlay/data_linear_result" type="array">
+         <obj_property name="ElementShortName">data_linear_result[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_linear_result[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/linear_overlay/data_key_result_bytes" type="array">
+         <obj_property name="ElementShortName">data_key_result_bytes[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_key_result_bytes[15:0][7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group138" type="group">
+      <obj_property name="label">Nonlinear</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/clk_i" type="logic">
+         <obj_property name="ElementShortName">clk_i</obj_property>
+         <obj_property name="ObjectShortName">clk_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/resetn_i" type="logic">
+         <obj_property name="ElementShortName">resetn_i</obj_property>
+         <obj_property name="ObjectShortName">resetn_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_linear_result" type="array">
+         <obj_property name="ElementShortName">data_linear_result[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_linear_result[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group208" type="group">
+         <obj_property name="label">Table</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_16_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_16_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_16_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_32_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_32_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_32_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_133_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_133_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_133_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_148_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_148_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_148_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_192_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_192_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_192_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_194_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_194_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_194_mem[0:255][7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/testbench/DUT/nonlinear_overlay/L_mul_251_mem" type="array">
+            <obj_property name="ElementShortName">L_mul_251_mem[0:255][7:0]</obj_property>
+            <obj_property name="ObjectShortName">L_mul_251_mem[0:255][7:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/request_i" type="logic">
+         <obj_property name="ElementShortName">request_i</obj_property>
+         <obj_property name="ObjectShortName">request_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/result_formed" type="logic">
+         <obj_property name="ElementShortName">result_formed</obj_property>
+         <obj_property name="ObjectShortName">result_formed</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_nonlinear_result" type="array">
+         <obj_property name="ElementShortName">data_nonlinear_result[127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_nonlinear_result[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/nonlinear_result" type="array">
+         <obj_property name="ElementShortName">nonlinear_result[127:0]</obj_property>
+         <obj_property name="ObjectShortName">nonlinear_result[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/busy" type="logic">
+         <obj_property name="ElementShortName">busy</obj_property>
+         <obj_property name="ObjectShortName">busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/resultOnNextClk" type="logic">
+         <obj_property name="ElementShortName">resultOnNextClk</obj_property>
+         <obj_property name="ObjectShortName">resultOnNextClk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/operation_counter" type="array">
+         <obj_property name="ElementShortName">operation_counter[3:0]</obj_property>
+         <obj_property name="ObjectShortName">operation_counter[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_galua_in" type="array">
+         <obj_property name="ElementShortName">data_galua_in[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_galua_in[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_galua_result" type="array">
+         <obj_property name="ElementShortName">data_galua_result[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_galua_result[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="divider" fp_name="divider306">
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/galua_summ" type="array">
+         <obj_property name="ElementShortName">galua_summ[7:0]</obj_property>
+         <obj_property name="ObjectShortName">galua_summ[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/trial_output" type="array">
+         <obj_property name="ElementShortName">trial_output[127:0]</obj_property>
+         <obj_property name="ObjectShortName">trial_output[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_galua_shreg" type="array">
+         <obj_property name="ElementShortName">data_galua_shreg[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_galua_shreg[15:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/data_galua_shreg_next" type="array">
+         <obj_property name="ElementShortName">data_galua_shreg_next[15:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_galua_shreg_next[15:0][7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
