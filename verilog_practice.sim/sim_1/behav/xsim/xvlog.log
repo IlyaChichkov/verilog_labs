@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Workspace/Verilog/verilog_practice/files/cipher.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cipher
+INFO: [VRFC 10-311] analyzing module key_overlay_module
+INFO: [VRFC 10-311] analyzing module linear_overlay_module
+WARNING: [VRFC 10-3676] redeclaration of ansi port 'data_linear_result' is not allowed [D:/Workspace/Verilog/verilog_practice/files/cipher.sv:190]
+INFO: [VRFC 10-311] analyzing module nonlinear_overlay_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Workspace/Verilog/verilog_practice/files/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
