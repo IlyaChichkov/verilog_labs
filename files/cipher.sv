@@ -291,9 +291,8 @@ always_comb begin
     data_galua_shreg = data_galua_in;
   end
 
-  if(operation_counter == 15)
+  if(operation_counter == 15) // Наложение завершено
   begin
-    // Наложение завершено
     data_nonlinear_result = trial_output;
     result_formed = 1;
     busy = 0;
@@ -311,15 +310,7 @@ begin
   else
     begin
       if(busy)
-        begin
-          if(operation_counter == 15)
-          begin
-            // Наложение завершено
-            operation_counter <= 0;
-          end
-          else
-            operation_counter <= operation_counter + 1; // счетчик операций (16)
-        end
+        operation_counter <= operation_counter + 1; // счетчик операций (16)
     end
 end
 endmodule
