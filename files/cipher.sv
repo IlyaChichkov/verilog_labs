@@ -282,7 +282,7 @@ endgenerate
 // при выполнении операций будут заменятся на данные сдвигового регистра
 assign data_galua_in = request_i ? data_linear_result : data_galua_shreg;
 
-always_comb begin
+always @(*) begin
   if(request_i && !busy)  // Запуск новых значений на нелинейные преобразования
   begin
     busy = 1;
