@@ -290,6 +290,14 @@ always_comb begin
     result_formed = 0;
     data_galua_shreg = data_galua_in;
   end
+
+  if(operation_counter == 15)
+  begin
+    // Наложение завершено
+    data_nonlinear_result = trial_output;
+    result_formed = 1;
+    busy = 0;
+  end
 end
 
 always_ff @(posedge clk_i or negedge resetn_i)
@@ -307,9 +315,6 @@ begin
           if(operation_counter == 15)
           begin
             // Наложение завершено
-            data_nonlinear_result <= trial_output;
-            result_formed <= 1;
-            busy <= 0;
             operation_counter <= 0;
           end
           else
