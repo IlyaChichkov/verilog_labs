@@ -12,23 +12,24 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="263201fs"></ZoomEndTime>
-      <Cursor1Time time="225000fs"></Cursor1Time>
+      <ZoomEndTime time="18385000fs"></ZoomEndTime>
+      <Cursor1Time time="18365000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="194"></NameColumnWidth>
-      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="5" />
    <wave_markers>
       <marker time="25000" label="" />
-      <marker time="235000" label="" />
       <marker time="35000" label="" />
       <marker time="55000" label="" />
+      <marker time="215000" label="" />
    </wave_markers>
    <wvobject fp_name="group134" type="group">
       <obj_property name="label">Testbench</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -81,7 +82,6 @@
    <wvobject fp_name="group135" type="group">
       <obj_property name="label">Cipher</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/DUT/clk_i" type="logic">
          <obj_property name="ElementShortName">clk_i</obj_property>
          <obj_property name="ObjectShortName">clk_i</obj_property>
@@ -230,7 +230,6 @@
    <wvobject fp_name="group138" type="group">
       <obj_property name="label">Nonlinear</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/DUT/nonlinear_overlay/clk_i" type="logic">
          <obj_property name="ElementShortName">clk_i</obj_property>
          <obj_property name="ObjectShortName">clk_i</obj_property>
@@ -287,17 +286,9 @@
          <obj_property name="ElementShortName">data_nonlinear_result[127:0]</obj_property>
          <obj_property name="ObjectShortName">data_nonlinear_result[127:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/nonlinear_result" type="array">
-         <obj_property name="ElementShortName">nonlinear_result[127:0]</obj_property>
-         <obj_property name="ObjectShortName">nonlinear_result[127:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/testbench/DUT/nonlinear_overlay/busy" type="logic">
          <obj_property name="ElementShortName">busy</obj_property>
          <obj_property name="ObjectShortName">busy</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/DUT/nonlinear_overlay/resultOnNextClk" type="logic">
-         <obj_property name="ElementShortName">resultOnNextClk</obj_property>
-         <obj_property name="ObjectShortName">resultOnNextClk</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/DUT/nonlinear_overlay/operation_counter" type="array">
          <obj_property name="ElementShortName">operation_counter[3:0]</obj_property>
