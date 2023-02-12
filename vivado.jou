@@ -56,3 +56,8 @@ close_sim
 close_project
 open_project D:/Workspace/Verilog/verilog_practice/verilog_practice.xpr
 update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config D:/Workspace/Verilog/verilog_practice/testbench_behav.wcfg
+source testbench.tcl
+run 35 us
+restart
