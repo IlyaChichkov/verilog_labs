@@ -65,10 +65,10 @@ linear_overlay_module linear_overlay(
 );
 
 // Нелинейные преобразования
-logic nonlinear_request;
-logic result_formed;
-logic [7:0]   nonlinear_overlay_i [15:0];
-logic [127:0] nonlinear_overlay_result;
+logic nonlinear_request;                    // Запрос на нелинейное преобразование
+logic result_formed;                        // Сигнал о том что результат сформирован
+logic [7:0]   nonlinear_overlay_i [15:0];   // Входные данные для нелинейного преобразования
+logic [127:0] nonlinear_overlay_result;     // Результат нелинейного преобразования
 nonlinear_overlay_module nonlinear_overlay(
   .clk_i(clk_i),
   .resetn_i(resetn_i),
@@ -218,7 +218,6 @@ module nonlinear_overlay_module(
   assign data_nonlinear_result = nonlinear_result;
 
   logic busy = 0;                     // Флаг занятости модуля
-  logic resultOnNextClk = 0;          // Флаг готовности результата на следующем такте
   logic [3:0] operation_counter = 0;  // Счетчик операций
     
   logic [7:0] data_galua_in [15:0];
@@ -282,6 +281,20 @@ generate;
 endgenerate
 /*-------------------------------- GENERATE LOGIC ----------------------------------*/
 
+assign data_galua_in = request_i ? data_linear_result : data_galua_shreg;
+
+always_comb begin
+  
+  if(request_i && !busy)
+  begin
+    // Запуск новых значений на нелинейные преобразования
+    busy = 1;
+    operation_counter = 0;
+    result_formed = 0;
+    data_galua_shreg = data_galua_in;
+  end
+end
+
 always_ff @(posedge clk_i or negedge resetn_i)
 begin
   if(~resetn_i)
@@ -289,36 +302,25 @@ begin
       operation_counter = 0;
       busy = 0;
       result_formed = 0;
-      resultOnNextClk = 0;
     end
   else
     begin
       if(request_i && !busy)
       begin
         // Запуск новых значений на нелинейные преобразования
-        busy = 1;
-        operation_counter = 0;
-        result_formed = 0;
-        data_galua_in = data_linear_result;
-        data_galua_shreg = data_galua_in;
+        //data_galua_in = data_linear_result;
       end
       
       if(busy)
         begin
-          data_galua_in <= data_galua_shreg;  // Передаем значения регистра для следующего вычисления произведения
 
-          if(resultOnNextClk)
+          if(operation_counter == 15)
           begin
-            // Результат вычисления определен
             nonlinear_result <= trial_output;
             result_formed <= 1;
             busy <= 0;
-            resultOnNextClk <= 0;
             operation_counter <= 0;
           end
-
-          if(operation_counter == 15 && !resultOnNextClk)
-            resultOnNextClk <= 1;                       // на следующем такте будет готов результат
           else
             operation_counter <= operation_counter + 1; // счетчик операций (16)
         end
