@@ -11,26 +11,32 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="20255333fs"></ZoomStartTime>
-      <ZoomEndTime time="20386934fs"></ZoomEndTime>
-      <Cursor1Time time="20365000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="263201fs"></ZoomEndTime>
+      <Cursor1Time time="225000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="194"></NameColumnWidth>
       <ValueColumnWidth column_width="104"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
-   <wvobject fp_name="/testbench/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/resetn" type="logic">
-      <obj_property name="ElementShortName">resetn</obj_property>
-      <obj_property name="ObjectShortName">resetn</obj_property>
-   </wvobject>
+   <WVObjectSize size="5" />
+   <wave_markers>
+      <marker time="25000" label="" />
+      <marker time="235000" label="" />
+      <marker time="35000" label="" />
+      <marker time="55000" label="" />
+   </wave_markers>
    <wvobject fp_name="group134" type="group">
       <obj_property name="label">Testbench</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/resetn" type="logic">
+         <obj_property name="ElementShortName">resetn</obj_property>
+         <obj_property name="ObjectShortName">resetn</obj_property>
+      </wvobject>
       <wvobject fp_name="/testbench/data_to_cipher" type="array">
          <obj_property name="ElementShortName">data_to_cipher[0:10][127:0]</obj_property>
          <obj_property name="ObjectShortName">data_to_cipher[0:10][127:0]</obj_property>
@@ -188,7 +194,6 @@
    <wvobject fp_name="group136" type="group">
       <obj_property name="label">Key</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/DUT/key_overlay/round_key" type="array">
          <obj_property name="ElementShortName">round_key[127:0]</obj_property>
          <obj_property name="ObjectShortName">round_key[127:0]</obj_property>
