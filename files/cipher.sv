@@ -200,29 +200,25 @@ endmodule
 
 /* ------------------ NONLINEAR OVERLAY --------------------- */
 module nonlinear_overlay_module(
-  input clk_i,
-        resetn_i,
-        request_i,
-  [7:0] data_linear_result [15:0],
-  [7:0] L_mul_16_mem  [0:255],
-  [7:0] L_mul_32_mem  [0:255],
-  [7:0] L_mul_133_mem  [0:255],
-  [7:0] L_mul_148_mem  [0:255],
-  [7:0] L_mul_192_mem  [0:255],
-  [7:0] L_mul_194_mem  [0:255],
-  [7:0] L_mul_251_mem  [0:255],
-  output logic result_formed,
-  [127:0] data_nonlinear_result
+  input                 clk_i,
+                        resetn_i,
+                        request_i,
+                [7:0]   data_linear_result  [15:0],
+                [7:0]   L_mul_16_mem        [0:255],
+                [7:0]   L_mul_32_mem        [0:255],
+                [7:0]   L_mul_133_mem       [0:255],
+                [7:0]   L_mul_148_mem       [0:255],
+                [7:0]   L_mul_192_mem       [0:255],
+                [7:0]   L_mul_194_mem       [0:255],
+                [7:0]   L_mul_251_mem       [0:255],
+  output  logic         result_formed,
+          logic [127:0] data_nonlinear_result
 );
-  logic [127:0] nonlinear_result;     // Результат вычислений
-  assign data_nonlinear_result = nonlinear_result;
-
   logic busy = 0;                     // Флаг занятости модуля
   logic [3:0] operation_counter = 0;  // Счетчик операций
     
-  logic [7:0] data_galua_in [15:0];
-
-  logic [7:0] data_galua_result [15:0];
+  logic [7:0] data_galua_in [15:0];     // Данные для перемножения с коэффициентами таблицы
+  logic [7:0] data_galua_result [15:0]; // Результат перемножения данных на коэффициенты таблицы
 
   // Table Ratio  148, 32, 133, 16, 194, 192, 1, 251, 1, 192, 194, 16, 133, 32, 148, 1
   // Number Index  15, 14,  13, 12,  11,  10, 9,   8, 7,   6,   5,  4,   3,  2,   1, 0
@@ -281,13 +277,14 @@ generate;
 endgenerate
 /*-------------------------------- GENERATE LOGIC ----------------------------------*/
 
+// Данные отправляемые на перемножение с табличными значениями
+// при новом запросе будут равны данным пришедшим на модуль
+// при выполнении операций будут заменятся на данные сдвигового регистра
 assign data_galua_in = request_i ? data_linear_result : data_galua_shreg;
 
 always_comb begin
-  
-  if(request_i && !busy)
+  if(request_i && !busy)  // Запуск новых значений на нелинейные преобразования
   begin
-    // Запуск новых значений на нелинейные преобразования
     busy = 1;
     operation_counter = 0;
     result_formed = 0;
@@ -305,18 +302,12 @@ begin
     end
   else
     begin
-      if(request_i && !busy)
-      begin
-        // Запуск новых значений на нелинейные преобразования
-        //data_galua_in = data_linear_result;
-      end
-      
       if(busy)
         begin
-
           if(operation_counter == 15)
           begin
-            nonlinear_result <= trial_output;
+            // Наложение завершено
+            data_nonlinear_result <= trial_output;
             result_formed <= 1;
             busy <= 0;
             operation_counter <= 0;
